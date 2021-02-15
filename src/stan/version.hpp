@@ -1,19 +1,31 @@
-#ifndef __STAN__VERSION_HPP__
-#define __STAN__VERSION_HPP__
+#ifndef STAN_VERSION_HPP
+#define STAN_VERSION_HPP
 
 #include <string>
 
+#ifndef STAN_STRING_EXPAND
+#define STAN_STRING_EXPAND(s) #s
+#endif
+
+#ifndef STAN_STRING
+#define STAN_STRING(s) STAN_STRING_EXPAND(s)
+#endif
+
+#define STAN_MAJOR 2
+#define STAN_MINOR 26
+#define STAN_PATCH 1
+
 namespace stan {
 
-  /** Major version number for Stan package. */
-  const std::string MAJOR_VERSION = "1";
+/** Major version number for Stan package. */
+const std::string MAJOR_VERSION = STAN_STRING(STAN_MAJOR);
 
-  /** Minor version number for Stan package. */
-  const std::string MINOR_VERSION = "2";
+/** Minor version number for Stan package. */
+const std::string MINOR_VERSION = STAN_STRING(STAN_MINOR);
 
-  /** Patch version for Stan package. */
-  const std::string PATCH_VERSION = "0";
+/** Patch version for Stan package. */
+const std::string PATCH_VERSION = STAN_STRING(STAN_PATCH);
 
-}
+}  // namespace stan
 
 #endif

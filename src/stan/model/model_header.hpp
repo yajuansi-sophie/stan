@@ -1,5 +1,22 @@
-#ifndef STAN__MODEL__MODEL__HEADER_HPP__
-#define STAN__MODEL__MODEL__HEADER_HPP__
+#ifndef STAN_MODEL_MODEL_HEADER_HPP
+#define STAN_MODEL_MODEL_HEADER_HPP
+
+#include <stan/math.hpp>
+
+#include <stan/io/cmd_line.hpp>
+#include <stan/io/dump.hpp>
+#include <stan/io/reader.hpp>
+#include <stan/io/writer.hpp>
+
+#include <stan/lang/rethrow_located.hpp>
+#include <stan/model/model_base.hpp>
+#include <stan/model/model_base_crtp.hpp>
+#include <stan/model/prob_grad.hpp>
+#include <stan/model/indexing.hpp>
+#include <stan/services/util/create_rng.hpp>
+
+#include <boost/random/additive_combine.hpp>
+#include <boost/random/linear_congruential.hpp>
 
 #include <cmath>
 #include <cstddef>
@@ -9,24 +26,5 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
-
-#include <boost/exception/all.hpp>
-
-#include <stan/agrad/agrad.hpp>
-#include <stan/agrad/special_functions.hpp>
-#include <stan/agrad/matrix.hpp>
-#include <stan/agrad/matrix_error_handling.hpp>
-#include <stan/agrad/partials_vari.hpp>
-#include <stan/gm/command.hpp>
-#include <stan/io/cmd_line.hpp>
-#include <stan/io/dump.hpp>
-#include <stan/io/reader.hpp>
-#include <stan/io/writer.hpp>
-#include <stan/io/csv_writer.hpp>
-#include <stan/math/matrix.hpp>
-#include <stan/math/special_functions.hpp>
-#include <stan/mcmc/sampler.hpp>
-#include <stan/model/prob_grad_ad.hpp>
-#include <stan/prob/distributions.hpp>
 
 #endif

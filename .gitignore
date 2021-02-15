@@ -5,9 +5,6 @@
 /*.dSYM
 /bin
 
-# precompiled model header
-/src/stan/model/model_header.hpp.*ch
-
 # other binary
 *.o
 *.exe
@@ -15,12 +12,21 @@
 # /doc/
 /doc/api
 /doc/*.pdf
+/doc/*.txt
 
-# temporary files
-*~
+# temporary latex files
 *.idx
 *.ilg
 *.ind
+*.fdb_latexmk
+*.fls
+
+# temporary emacs files
+*~
+\#*#
+
+# temporary vim files
+*.swp
 
 # depedencies files
 *.d
@@ -32,15 +38,35 @@ stan.kdev4
 .Rapp.history
 
 # tests: compiled models
-src/test/gm/model_specs/compiled/*
-!src/test/gm/model_specs/compiled/*.stan
-!src/test/gm/model_specs/compiled/.gitignore
+/src/test/test-models/*.hpp
+/src/test/test-models/*/*.hpp
+/src/test/test-models/*/*/*.hpp
+/src/test/test-models/*/*/*/*.hpp
+/src/test/test-models/*/*/*/*/*.hpp
+/src/test/test-models/*/*/*/*/*/*.hpp
+/src/test/test-models/*/*/*/*/*/*/*.hpp
+!/src/test/test-models/**/*.stan
+!/src/test/test-models/**/.gitignore
 
 # tests: generated agrad tests
-src/test/agrad/distributions/univariate/continuous/*_generated_test.cpp
-src/test/agrad/distributions/univariate/discrete/*_generated_test.cpp
-src/test/agrad/distributions/multivariate/continuous/*_generated_test.cpp
-src/test/agrad/distributions/multivariate/discrete/*_generated_test.cpp
+/src/test/prob/*/*_generated_*_test.cpp
 
 # For the Mac
 *.DS_Store
+
+# local make include
+/make/local
+
+*.gch
+
+#clang-tidy fixes yaml
+.clang-fixes.log
+
+# Visual Studio Settings
+.vscode/*
+
+# clangd compiler database
+compile_commands.json
+
+# gdb
+.gdb_history
